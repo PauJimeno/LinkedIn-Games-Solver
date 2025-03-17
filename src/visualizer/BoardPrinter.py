@@ -49,7 +49,7 @@ class BoardPrinter:
         draw = ImageDraw.Draw(image)
 
         # Draw cell info
-        font = ImageFont.truetype("arial.ttf", 30)
+        font = ImageFont.load_default(size=30)
 
         for i in range(self.size):
             for j in range(self.size):
