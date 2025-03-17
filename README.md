@@ -51,7 +51,7 @@ $\forall C_i \in S_2: (\sum_{k = 1}^{len(C_i)} H_k) = 1$
 
 Note that with this constraint, we are just ensuring that there is only one $H=1$ variable for each region, but there is no linking between the $Q$ variable and $H$ variable, the following constraint is needed:
 
-$\forall i \in 0..n, \forall j \in 0..n: (Q_i=j \implies S_1[(i,j)]=1) \vee (Q_i \neq j \implies S_1[(i,j)]=0)$
+$\forall i \in 0..n, \forall j \in 0..n: (Q_i=j \implies S_1[(i,j)]=1) \wedge (Q_i \neq j \implies S_1[(i,j)]=0)$
 
 #### Diagonal cell constraint
 Finally, we need to ensure each adjacent diagonal cell to a placed Queen is free ($C_4$), to do this the next constraint is used.
