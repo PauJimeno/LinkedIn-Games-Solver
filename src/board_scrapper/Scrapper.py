@@ -1,9 +1,9 @@
 import re
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
@@ -15,11 +15,8 @@ class Scrapper:
         self.web_driver = None
 
     def set_up_driver(self):
-        options = Options()
-        options.add_argument('--headless')
-
         service = Service(GeckoDriverManager().install())
-        self.web_driver = webdriver.Firefox(service=service, options=options)
+        self.web_driver = webdriver.Firefox(service=service)
         self.web_driver.get(self.url)
 
     def check_iframe(self):
@@ -39,18 +36,21 @@ class Scrapper:
         return board_name
 
     def access_main_page(self, known_button_ids):
-        i = 0
         button_found = False
-        while not button_found and i < len(known_button_ids):
-            button = WebDriverWait(self.web_driver, 20).until(
-                EC.element_to_be_clickable((By.ID, known_button_ids[i]))
-            )
-            if button.is_displayed() and button.is_enabled():
-                button_found = True
-            i += 1
-        if button_found:
-            button.click()
-        else:
+        for button_id in known_button_ids:
+            try:
+                button = WebDriverWait(self.web_driver, 0.5).until(
+                    EC.element_to_be_clickable((By.ID, button_id))
+                )
+                if button.is_displayed() and button.is_enabled():
+                    button.click()
+                    button_found = True
+                    break
+            except TimeoutException:
+                print(f"No 'Play' button with id={button_id} found, trying with next available id")
+                pass
+
+        if not button_found:
             raise Exception("Main game page inaccessible (Play Button not found)")
 
     def get_queens_board(self, main_div_id='queens-grid', board_div_class='queens-grid-no-gap'):
