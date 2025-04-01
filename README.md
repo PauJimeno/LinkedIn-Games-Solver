@@ -57,7 +57,7 @@ $\forall i \in 0..n, \forall j \in 0..n: (Q_i=j \implies S_1[(i,j)]=1) \wedge (Q
 Finally, we need to ensure each adjacent diagonal cell to a placed Queen is free ($C_4$), to do this the next constraint is used.
 Note that the constraint uses the variable  ${adj}=[(-1, 1), (1, 1), (-1, -1), (1, -1)]$ to get the adjacent cells relative to $(0,0)$.
 
-$\forall i \in 0..n, \forall j \in 0..n: (S_1[i][j]=1) \implies (\bigvee_{x, y \in adj} S_1[(i+x,j+y)]=0)$
+$\forall i \in 0..n, \forall j \in 0..n: (S_1[i][j]=1) \implies (\bigwedge_{x, y \in adj} S_1[(i+x,j+y)]=0)$
 
 ## How to use the solver locally
 ### Set up the project
