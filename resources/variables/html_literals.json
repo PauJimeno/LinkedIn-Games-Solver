@@ -1,6 +1,6 @@
 {
   "webpage_url": "https://www.linkedin.com/games/queens/",
-  "play_button_ids": ["ember18", "ember19"],
+  "play_button_ids": ["ember18", "ember19", "launch-footer-start-button"],
   "board_div_id": "queens-grid",
   "board_div_class": "queens-grid-no-gap",
   "cell_class": "queens-cell-with-border",
