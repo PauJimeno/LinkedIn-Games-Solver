@@ -40,7 +40,7 @@ def fetch_game_data(web_literals):
 def solve_board(game_data):
     solver = QueensSolver(game_data['board'], game_data['rows'])
     solution = []
-    if solver.solve_board():
+    if solver.solve_puzzle():
         print(f"Board #{game_data['number']} solved in {solver.computing_time}s")
         solution = solver.get_model()
     else:

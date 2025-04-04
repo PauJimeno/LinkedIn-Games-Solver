@@ -1,17 +1,13 @@
-from src.solver.Encoding import Encoding
-import time
-from z3 import *
+from src.solver.QueensEncoding import QueensEncoding
+from src.solver.GenericSolver import GenericSolver
 
 
-class QueensSolver:
+class QueensSolver(GenericSolver):
     def __init__(self, board, size):
+        super().__init__()
         self.board = board
         self.size = size
-        self.encoding = Encoding(self.board, self.size)
-        self.computing_time = 0
-
-        # Solver definition
-        self.solver = Solver()
+        self.encoding = QueensEncoding(self.board, self.size)
 
         # Variable definition
         self.queens = self.encoding.queens_variable()
@@ -24,13 +20,6 @@ class QueensSolver:
             self.encoding.free_diagonals_constraint(self.painted_cells) +
             self.encoding.one_queen_per_color_constraint(self.queens, self.color_region, self.painted_cells)
         )
-
-    def solve_board(self):
-        time_before = time.time()
-        has_solution = self.solver.check() == sat
-        self.computing_time = round(time.time() - time_before, 3)
-
-        return has_solution
 
     def get_model(self):
         return [int(str(self.solver.model()[queen])) for queen in self.queens]
