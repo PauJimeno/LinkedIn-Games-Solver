@@ -1,21 +1,32 @@
 from src.board_scrapper.QueensScrapper import QueensScrapper
 from src.solver.QueensSolver import QueensSolver
-from src.visualizer.BoardPrinter import BoardPrinter
+from src.visualizer.QueensPrinter import BoardPrinter
 import time
 import json
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 SOLVED_BOARDS = 'resources/solved_boards/Queens'
 BOARD_INSTANCES = 'resources/instances/Queens'
+STYLES = 'resources/variables/styles.json'
+WEB_LITERALS = 'resources/variables/html_literals.json'
+
 GAME = 'queens'
 
 
 def load_json_files():
     with open('resources/variables/html_literals.json') as f:
         web_literals = json.load(f)
-    with open('resources/variables/color_palette.json') as f:
+    with open('resources/variables/styles.json') as f:
         color_palette = json.load(f)
 
     return web_literals, color_palette
+
+
+def load_json(path):
+    with open(path) as f:
+        json_content = json.load(f)
+    return json_content
 
 
 def fetch_game_data(web_literals):
@@ -51,12 +62,13 @@ def solve_board(game_data):
     return solution
 
 
-web_literals, color_palette = load_json_files()
+web_literals = load_json(WEB_LITERALS)
+styles = load_json(STYLES)
 game_data = fetch_game_data(web_literals)
 solution = solve_board(game_data)
 
 if solution:
-    visualizer = BoardPrinter(game_data['board'], game_data['rows'], solution, color_palette)
+    visualizer = BoardPrinter(game_data['board'], game_data['rows'], solution, styles[GAME]['color_palette'])
     visualizer.solution_to_terminal()
     visualizer.solution_as_image(f"{SOLVED_BOARDS}/board_{game_data['number']}.png")
     game_data['solution'] = solution

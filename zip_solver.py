@@ -1,45 +1,22 @@
 from src.solver.ZipSolver import ZipSolver
 from src.board_scrapper.ZipScrapper import ZipScrapper
-from pprint import pprint
+from src.visualizer.ZipPrinter import ZipPrinter
 import json
 import time
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 SOLVED_BOARDS = 'resources/solved_boards/Zip'
 BOARD_INSTANCES = 'resources/instances/Zip'
+STYLES = 'resources/variables/styles.json'
+WEB_LITERALS = 'resources/variables/html_literals.json'
 GAME = 'zip'
 
-INSTANCE_15 = {
-    'walls': {
-        0: ['DOWN'],
-        3: ['DOWN'],
-        5: ['DOWN'],
-        6: ['DOWN'],
-        8: ['DOWN'],
-        10: ['RIGHT'],
-        12: ['DOWN'],
-        15: ['RIGHT'],
-        17: ['DOWN', 'RIGHT'],
-        19: ['RIGHT'],
-        22: ['RIGHT'],
-        23: ['RIGHT'],
-        26: ['DOWN', 'RIGHT'],
-        29: ['RIGHT'],
-        30: ['RIGHT'],
-        31: ['DOWN'],
-        33: ['RIGHT'],
-        36: ['DOWN', 'RIGHT'],
-        37: ['DOWN'],
-        40: ['DOWN', 'RIGHT']
-    },
-    'ordered_sequence': [0, 3, 6],
-    'size': 7
-}
 
-
-def load_literals():
-    with open('resources/variables/html_literals.json') as f:
-        web_literals = json.load(f)
-    return web_literals
+def load_json(path):
+    with open(path) as f:
+        json_content = json.load(f)
+    return json_content
 
 
 def fetch_game_data(web_literals):
@@ -79,11 +56,15 @@ def save_json(data, path):
         json.dump(data, f)
 
 
-web_literals = load_literals()
+web_literals = load_json(WEB_LITERALS)
+styles = load_json(STYLES)
 instance = fetch_game_data(web_literals)
 solution = solve_instance(instance)
 
 if solution:
-    pprint(solution)
     instance['solution'] = solution
+    visualizer = ZipPrinter(
+        instance['solution'], instance['ordered_sequence'],
+        instance['size'], styles[GAME]['line_style'], styles[GAME]['background'])
+    visualizer.solution_to_terminal()
     save_json(instance, f"{BOARD_INSTANCES}/instance_{instance['number']}")

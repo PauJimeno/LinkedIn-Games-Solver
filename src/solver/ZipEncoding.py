@@ -85,6 +85,7 @@ class ZipEncoding:
     def add_wall_redundancy(self):
         # Given the original walls adds the opposite direction of wall
         for cell, walls in list(self.walls.items()):
+            cell = int(cell)
             for wall in walls:
                 x, y = cell % self.size, cell // self.size
                 xi, yi = x + self.adjacent_pos[wall][0], y + self.adjacent_pos[wall][1]
