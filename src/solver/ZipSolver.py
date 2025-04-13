@@ -17,7 +17,5 @@ class ZipSolver(GenericSolver):
             self.encoding.waypoint_sequence_constraint(self.path)
         )
 
-        self.encoding.add_wall_redundancy()
-
     def get_model(self):
         return [[int(str(self.solver.model()[self.path[i][j]])) for i in range(self.size)] for j in range(self.size)]

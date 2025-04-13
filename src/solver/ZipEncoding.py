@@ -87,10 +87,12 @@ class ZipEncoding:
         for cell, walls in list(self.walls.items()):
             for wall in walls:
                 x, y = cell % self.size, cell // self.size
-                if wall in ('RIGHT', 'DOWN'):
-                    xi, yi = x + self.adjacent_pos[wall][0], y + self.adjacent_pos[wall][1]
-                    cell_index = yi * self.size + xi
-                    self.walls[cell_index].append(self.opposite_dir[wall])
+                xi, yi = x + self.adjacent_pos[wall][0], y + self.adjacent_pos[wall][1]
+                cell_index = yi * self.size + xi
+                opposite_dir = self.opposite_dir[wall]
+                adjacent_cell = self.walls[cell_index]
+                if opposite_dir not in adjacent_cell:
+                    adjacent_cell.append(self.opposite_dir[wall])
 
     def is_path_begin(self, x, y):
         x1, y1 = self.path_begin()

@@ -1,11 +1,12 @@
-from src.board_scrapper.Scrapper import Scrapper
+from src.board_scrapper.QueensScrapper import QueensScrapper
 from src.solver.QueensSolver import QueensSolver
 from src.visualizer.BoardPrinter import BoardPrinter
 import time
 import json
 
-SOLVED_BOARDS = 'resources/solved_boards'
-BOARD_INSTANCES = 'resources/instances'
+SOLVED_BOARDS = 'resources/solved_boards/Queens'
+BOARD_INSTANCES = 'resources/instances/Queens'
+GAME = 'queens'
 
 
 def load_json_files():
@@ -20,14 +21,15 @@ def load_json_files():
 def fetch_game_data(web_literals):
     time_before = time.time()
 
-    game_scrapper = Scrapper(web_literals['webpage_url'])
+    game_scrapper = QueensScrapper(web_literals[GAME]['webpage_url'])
     game_scrapper.set_up_driver()
     board_data = {}
     try:
         game_scrapper.check_iframe()
         board_data['number'] = game_scrapper.get_board_number(web_literals['level_number_class'])
         game_scrapper.access_main_page(web_literals['play_button_ids'])
-        board_data.update(game_scrapper.get_queens_board(web_literals['board_div_id'], web_literals['board_div_class']))
+        board_data.update(
+            game_scrapper.get_queens_board(web_literals[GAME]['board_div_id'], web_literals[GAME]['board_div_class']))
     finally:
         game_scrapper.close_web_driver()
 
@@ -41,10 +43,10 @@ def solve_board(game_data):
     solver = QueensSolver(game_data['board'], game_data['rows'])
     solution = []
     if solver.solve_puzzle():
-        print(f"Board #{game_data['number']} solved in {solver.computing_time}s")
+        print(f"Queens Puzzle #{game_data['number']} solved in {solver.computing_time}s")
         solution = solver.get_model()
     else:
-        print(f"Board #{game_data['number']} has no solution")
+        print(f"Queens Puzzle #{game_data['number']} has no solution")
 
     return solution
 
