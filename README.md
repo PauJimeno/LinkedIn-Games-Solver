@@ -1,12 +1,13 @@
 
-# SMTQueens
-SMTQueens is a solver for the daily [Queens](https://www.linkedin.com/games/queens/) LinkedIn puzzle game.
+# LinkedIn Games Solver
+LinkedIn-Games-Solver is a solver for the daily [Queens](https://www.linkedin.com/games/queens/) and [Zip](https://www.linkedin.com/games/zip/) LinkedIn puzzle games.
 
-It automatically fetches the puzzle information from the game webpage, then it prints the solution in the terminal and saves an image in the `/resources/solved_boards` folder located in the root of the project. 
-It also saves the board data in a `json` file located in `/resources/instances`
+It automatically fetches the puzzle information from the games webpage, then it prints the solution in the terminal and saves an image in the `/resources/solved_boards/Queens` or `/resources/solved_boards/Zip` folders located in the root of the project. 
+It also saves the board data in a `json` file located in `/resources/instances/Queens` or `/resources/instances/Zip`.
 
 The base of the solver is an encoding using the [SAT Module Theories](https://en.wikipedia.org/wiki/Satisfiability_modulo_theories), popularly used to encode many [Constraint Satisfaction Problems (CSP)](https://en.wikipedia.org/wiki/Constraint_satisfaction_problem).
 
+# 1. Queens Game Approach
 ## The encoding
 As said, an encoding has been used to solve the Queens puzzle, let's have a look at how it's been done.
 ### Queens rules (constraints)
