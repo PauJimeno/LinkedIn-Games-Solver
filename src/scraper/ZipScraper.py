@@ -1,4 +1,4 @@
-from src.board_scrapper.Scrapper import Scrapper
+from src.board_scraper.Scraper import Scraper
 
 from collections import defaultdict
 import re
@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
 
-class ZipScrapper(Scrapper):
+class ZipScraper(Scraper):
     def __init__(self, url):
         super().__init__(url)
 

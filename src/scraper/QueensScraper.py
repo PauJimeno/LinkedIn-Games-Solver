@@ -1,4 +1,4 @@
-from src.board_scrapper.Scrapper import Scrapper
+from src.board_scraper.Scraper import Scraper
 
 import re
 from selenium.webdriver.common.by import By
@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
 
-class QueensScrapper(Scrapper):
+class QueensScraper(Scraper):
     def __init__(self, queens_url):
         super().__init__(queens_url)
 

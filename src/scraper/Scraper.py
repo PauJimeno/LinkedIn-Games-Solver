@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
 
-class Scrapper:
+class Scraper:
     def __init__(self, url):
         self.url = url
         self.web_driver = None
