@@ -1,5 +1,5 @@
-from src.solver.GenericSolver import GenericSolver
-from src.solver.ZipEncoding import ZipEncoding
+from solver.GenericSolver import GenericSolver
+from solver.ZipEncoding import ZipEncoding
 
 
 class ZipSolver(GenericSolver):

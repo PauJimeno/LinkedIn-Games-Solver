@@ -1,6 +1,5 @@
 import json
 import click
-import time
 
 
 class BaseSetup:

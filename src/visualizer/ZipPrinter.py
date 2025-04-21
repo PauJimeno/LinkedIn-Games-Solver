@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class ZipPrinter:
     def __init__(self, solution, waypoints, size, charset, background):
         self.solution = solution

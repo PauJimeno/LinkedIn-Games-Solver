@@ -1,7 +1,7 @@
-from src.solver.ZipSolver import ZipSolver
-from src.scraper.ZipScraper import ZipScraper
-from src.visualizer.ZipPrinter import ZipPrinter
-from src.base.BaseSetup import BaseSetup
+from solver.ZipSolver import ZipSolver
+from scraper.ZipScraper import ZipScraper
+from visualizer.ZipPrinter import ZipPrinter
+from base.BaseSetup import BaseSetup
 import time
 import sys
 sys.stdout.reconfigure(encoding='utf-8')

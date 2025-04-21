@@ -1,7 +1,7 @@
-from src.solver.QueensSolver import QueensSolver
-from src.scraper.QueensScraper import QueensScraper
-from src.visualizer.QueensPrinter import QueensPrinter
-from src.base.BaseSetup import BaseSetup
+from solver.QueensSolver import QueensSolver
+from scraper.QueensScraper import QueensScraper
+from visualizer.QueensPrinter import QueensPrinter
+from base.BaseSetup import BaseSetup
 import time
 import sys
 sys.stdout.reconfigure(encoding='utf-8')

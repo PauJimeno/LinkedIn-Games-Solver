@@ -1,5 +1,5 @@
-from src.solver.QueensEncoding import QueensEncoding
-from src.solver.GenericSolver import GenericSolver
+from solver.QueensEncoding import QueensEncoding
+from solver.GenericSolver import GenericSolver
 
 
 class QueensSolver(GenericSolver):
