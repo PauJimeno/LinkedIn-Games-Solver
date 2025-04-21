@@ -29,18 +29,19 @@ class ZipEncoding:
 
     def path_domain_constraint(self, path):
         # Each variable can take value from [0..width*height-1], 0 lower bound implicit from BitVec variable
-        return [ULT(path[i][j], self.size*self.size) for i in range(self.size) for j in range(self.size)]
+        return [ULE(path[i][j], self.size*self.size-1) for i in range(self.size) for j in range(self.size)]
 
     def path_propagation_constraint(self, path):
         constraint = []
         for i in range(self.size):
             for j in range(self.size):
-                if not self.is_path_begin(i, j) and not self.is_path_end(i, j):
-                    neigh_cells = []
-                    for x, y in self.neighbouring_cells(i, j):
-                        neigh_cells.append(path[x][y])
-                    current_cell = path[i][j]
+                neigh_cells = []
+                for x, y in self.neighbouring_cells(i, j):
+                    neigh_cells.append(path[x][y])
+                current_cell = path[i][j]
+                if not self.is_path_end(i, j):
                     constraint.append(Sum([If(cell == current_cell + 1, 1, 0) for cell in neigh_cells]) == 1)
+                if not self.is_path_begin(i, j):
                     constraint.append(Sum([If(cell == current_cell - 1, 1, 0) for cell in neigh_cells]) == 1)
 
         return constraint
@@ -67,7 +68,7 @@ class ZipEncoding:
         # Given an (x, y) coordinate returns a list of accessible neighbouring cell positions
         neighbour_cells = []
         cell_index = y * self.size + x
-        cell_walls = self.walls.get(cell_index, [])
+        cell_walls = self.walls.get(str(cell_index), [])
         possible_neigh_dir = copy.deepcopy(self.adjacent_pos)
 
         # Delete directions blocked by walls
@@ -91,7 +92,7 @@ class ZipEncoding:
                 xi, yi = x + self.adjacent_pos[wall][0], y + self.adjacent_pos[wall][1]
                 cell_index = yi * self.size + xi
                 opposite_dir = self.opposite_dir[wall]
-                adjacent_cell = self.walls[cell_index]
+                adjacent_cell = self.walls[str(cell_index)]
                 if opposite_dir not in adjacent_cell:
                     adjacent_cell.append(self.opposite_dir[wall])
 

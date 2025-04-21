@@ -1,4 +1,4 @@
-from src.board_scraper.Scraper import Scraper
+from src.scraper.Scraper import Scraper
 
 from collections import defaultdict
 import re

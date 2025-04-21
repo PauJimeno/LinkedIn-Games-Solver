@@ -14,7 +14,8 @@ class ZipSolver(GenericSolver):
         self.solver.add(
             self.encoding.path_domain_constraint(self.path) +
             self.encoding.path_propagation_constraint(self.path) +
-            self.encoding.waypoint_sequence_constraint(self.path)
+            self.encoding.waypoint_sequence_constraint(self.path) +
+            self.encoding.path_start_end_constraint(self.path)
         )
 
     def get_model(self):

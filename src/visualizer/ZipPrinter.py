@@ -58,5 +58,3 @@ class ZipPrinter:
             if self.size % 2 == 0:
                 alternator = not alternator
             print()
-
-

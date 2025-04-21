@@ -88,7 +88,7 @@ python queens_solver.py
 The solver has two configuration files. By default, they don't need to be changed. Nevertheless, here is what they are used to in case you want to change them:
 
 #### 1. html_literals.json
-This file is located in `resources/variables/html_literals.json`, it contains all the useful HTML information that the scrapper needs to fetch the board data from the Queens webpage. In the case of an ID naming change from the admins, or URL change... This file can be changed accordingly. Also, the Scrapper needs to click a button automatically and its ID changes every few weeks, so the `play_button_ids` list variable can be edited to contain new possible button IDs.
+This file is located in `resources/variables/html_literals.json`, it contains all the useful HTML information that the scraper needs to fetch the board data from the Queens webpage. In the case of an ID naming change from the admins, or URL change... This file can be changed accordingly. Also, the Scraper needs to click a button automatically and its ID changes every few weeks, so the `play_button_ids` list variable can be edited to contain new possible button IDs.
 
 #### 2. color_palette.json
 This file is located in `resources/variables/color_palette.json`, and it is just to indicate the colours used in the solved board. It can be changed with no problem, but the key values must stay as they are.

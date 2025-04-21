@@ -25,7 +25,7 @@
         }
     },
     "zip": {
-        "line_style": 0,
+        "line_style": 1,
         "background": [[2, 198, 247], [2, 186, 247]]
     }
 }

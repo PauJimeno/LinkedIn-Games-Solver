@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
 
-class BoardPrinter:
+class QueensPrinter:
     def __init__(self, board, size, solution, color_palette):
         self.board = board
         self.solution = solution
