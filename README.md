@@ -110,14 +110,14 @@ The idea behind this constraint is to define the behaviour of a path, to do this
 Since the variable $P$ is of size $n \times n$ the $C_1$ constraint is implicitly satisfied.
 The constraint formalization, which uses three functions looks like this:
 - Accessible neighbouring cells $adj(x, y)$
-- Is start $is\\_start(x, y)$
-- Is end $is\\_end(x, y)$
+- Is start $start(x, y)$
+- Is end $end(x, y)$
 
 Forward propagation\
-$\forall i \in 0..n, \forall j \in 0..n: \lnot is\\_end(i, j) \implies (\sum_{x,y \in adj(i,j)} P_{x,y} = P_{i,j}+1) = 1$
+$\forall i \in 0..n, \forall j \in 0..n: \lnot end(i, j) \implies (\sum_{x,y \in adj(i,j)} P_{x,y} = P_{i,j}+1) = 1$
 
 Backwards propagation\
-$\forall i \in 0..n, \forall j \in 0..n: \lnot is\\_start(i, j) \implies (\sum_{x,y \in adj(i,j)} P_{x,y} = P_{i,j}-1) = 1$
+$\forall i \in 0..n, \forall j \in 0..n: \lnot start(i, j) \implies (\sum_{x,y \in adj(i,j)} P_{x,y} = P_{i,j}-1) = 1$
 
 This constraint alone is enough to define a coherent path that starts and end in the corresponding cells and occupies the entire board.
 But we can help the solver a little bit with the next constraint.
