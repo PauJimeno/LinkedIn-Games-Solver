@@ -1,12 +1,11 @@
-import re
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
 
 
 class Scraper:
@@ -15,8 +14,11 @@ class Scraper:
         self.web_driver = None
 
     def set_up_driver(self):
+        options = Options()
+        options.set_preference("intl.accept_languages", "en-US")
         service = Service(GeckoDriverManager().install())
-        self.web_driver = webdriver.Firefox(service=service)
+        self.web_driver = webdriver.Firefox(service=service, options=options)
+        self.web_driver.delete_all_cookies()
         self.web_driver.get(self.url)
 
     def check_iframe(self):

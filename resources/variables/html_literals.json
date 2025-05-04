@@ -10,5 +10,9 @@
   "zip": {
     "webpage_url": "https://www.linkedin.com/games/zip/",
     "board_div_class": "grid-game-board"
+  },
+  "tango": {
+    "webpage_url": "https://www.linkedin.com/games/tango/",
+    "board_div_class" : "lotka-grid"
   }
 }
