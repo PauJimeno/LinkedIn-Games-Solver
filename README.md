@@ -30,7 +30,13 @@ This commands will automatically run the main application, fetching the puzzle, 
 ```bash
 zip_solver
 queens_solver
+tango_solver
 ```
+<img width="619" height="281" alt="imagen" src="https://github.com/user-attachments/assets/142af450-ba00-40fe-a689-ff44adb9543a" />
+<img width="674" height="342" alt="imagen" src="https://github.com/user-attachments/assets/8a7123bd-7a4b-4853-bbd8-73c5b43d2719" />
+<img width="578" height="275" alt="imagen" src="https://github.com/user-attachments/assets/4977b9f4-50c4-4408-b3bc-e70ae9d78bdd" />
+
+
 
 # 2. Queens Game encoding
 As said, an encoding has been used to solve the Queens puzzle, let's have a look at how it's been done.
