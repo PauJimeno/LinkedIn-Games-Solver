@@ -1,6 +1,6 @@
 
 # LinkedIn Games Solver
-LinkedIn-Games-Solver is a solver for the daily [Queens](https://www.linkedin.com/games/queens/) and [Zip](https://www.linkedin.com/games/zip/) LinkedIn puzzle games.
+LinkedIn-Games-Solver is a solver for the daily [Queens](https://www.linkedin.com/games/queens/), [Zip](https://www.linkedin.com/games/zip/) and [Tango](https://www.linkedin.com/games/tango/) LinkedIn puzzle games.
 
 It automatically fetches the puzzle information from the games webpage, then it prints the solution as well as saving the board informnation in a `.json` file.
 
@@ -10,7 +10,7 @@ The base of the solver is an encoding using the [SAT Module Theories](https://en
 ## Set up the project
 1. Clone the repository in the desired directory
 	```bash
-	git clone https://github.com/PauJimeno/SMTQueens.git
+	git clone https://github.com/PauJimeno/LinkedIn-Games-Solver.git
 	```
 2. Create a virtual environment using the Python version 3.10
 	```bash
@@ -25,18 +25,16 @@ The base of the solver is an encoding using the [SAT Module Theories](https://en
 	pip install -e .
 	```
 ## Use the solver
-Two console commands have been defined in order to use the solver.
+Three console commands have been defined in order to use the solver.
 This commands will automatically run the main application, fetching the puzzle, solving it, printing the solution and saving the solved instance into a `.json` file. 
 ```bash
 zip_solver
 queens_solver
 tango_solver
 ```
-<img width="619" height="281" alt="imagen" src="https://github.com/user-attachments/assets/142af450-ba00-40fe-a689-ff44adb9543a" />
-<img width="674" height="342" alt="imagen" src="https://github.com/user-attachments/assets/8a7123bd-7a4b-4853-bbd8-73c5b43d2719" />
-<img width="578" height="275" alt="imagen" src="https://github.com/user-attachments/assets/4977b9f4-50c4-4408-b3bc-e70ae9d78bdd" />
-
-
+<img width="604" height="277" alt="imagen" src="https://github.com/user-attachments/assets/6af1c6c3-7acd-4d07-80dd-5ee9c5447f1a" />
+<img width="625" height="341" alt="imagen" src="https://github.com/user-attachments/assets/6d43af31-cf64-4fba-b86b-6424634639f3" />
+<img width="573" height="272" alt="imagen" src="https://github.com/user-attachments/assets/2aaf6f6d-3441-49f4-bc48-150c9ae087df" />
 
 # 2. Queens Game encoding
 As said, an encoding has been used to solve the Queens puzzle, let's have a look at how it's been done.
