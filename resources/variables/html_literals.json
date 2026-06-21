@@ -14,5 +14,9 @@
   "tango": {
     "webpage_url": "https://www.linkedin.com/games/tango/",
     "board_div_class" : "lotka-grid"
+  },
+  "mini-sudoku": {
+    "webpage_url": "https://www.linkedin.com/games/mini-sudoku/",
+    "board_div_class" : "sudoku-grid"
   }
 }

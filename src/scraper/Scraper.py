@@ -16,7 +16,7 @@ class Scraper:
     def set_up_driver(self):
         options = Options()
         options.set_preference("intl.accept_languages", "en-US")
-        service = Service(GeckoDriverManager().install())
+        service = Service('/snap/bin/geckodriver')
         self.web_driver = webdriver.Firefox(service=service, options=options)
         self.web_driver.delete_all_cookies()
         self.web_driver.get(self.url)
