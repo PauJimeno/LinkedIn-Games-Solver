@@ -33,7 +33,7 @@ class QueensSetup(BaseSetup):
         try:
             self.scraper.check_iframe()
             board_data['number'] = self.scraper.get_board_number(self.web_literals['level_number_class'])
-            self.scraper.access_main_page(self.web_literals['play_button_ids'])
+            self.scraper.access_main_page(self.web_literals[self.game_type]['play_button'])
             board_data.update(
                 self.scraper.get_queens_board(
                     self.web_literals[self.game_type]['board_div_id'],

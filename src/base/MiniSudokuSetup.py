@@ -32,7 +32,7 @@ class MiniSudokuSetup(BaseSetup):
         try:
             self.scraper.check_iframe()
             board_data['number'] = date.today().strftime('%d-%m-%Y')
-            self.scraper.access_main_page(self.web_literals['play_button_ids'])
+            self.scraper.access_main_page(self.web_literals[self.game_type]['play_button'])
             board_data.update(self.scraper.get_mini_sudoku_board(self.web_literals[self.game_type]['board_div_class']))
         finally:
             self.scraper.close_web_driver()

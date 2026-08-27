@@ -1,22 +1,30 @@
 {
-  "play_button_ids": ["ember18", "ember19", "launch-footer-start-button"],
   "level_number_class": "launch-footer__score-text",
   "queens": {
       "webpage_url": "https://www.linkedin.com/games/queens/",
       "board_div_id": "queens-grid",
       "board_div_class": "queens-grid-no-gap",
-      "cell_class": "queens-cell-with-border"
+      "cell_class": "queens-cell-with-border",
+      "play_button": "button#launch-footer-start-button"
   },
   "zip": {
     "webpage_url": "https://www.linkedin.com/games/zip/",
-    "board_div_class": "grid-game-board"
+    "board_div_class": "grid-game-board",
+    "play_button": "button#launch-footer-start-button"
   },
   "tango": {
     "webpage_url": "https://www.linkedin.com/games/tango/",
-    "board_div_class" : "lotka-grid"
+    "board_div_class" : "lotka-grid",
+    "play_button": "button#launch-footer-start-button"
   },
   "mini-sudoku": {
     "webpage_url": "https://www.linkedin.com/games/mini-sudoku/",
-    "board_div_class" : "sudoku-grid"
+    "board_div_class" : "sudoku-grid",
+    "play_button": "button#launch-footer-start-button"
+  },
+  "patches": {
+    "webpage_url": "https://www.linkedin.com/games/patches/",
+    "board_div_class" : "[data-testid=\"interactive-grid\"]",
+    "play_button": "a[href*='skipStartScreen=true']"
   }
 }

@@ -28,19 +28,17 @@ class Scraper:
         except:
             pass
 
-    def access_main_page(self, known_button_ids):
+    def access_main_page(self, button_ref):
         button_found = False
-        for button_id in known_button_ids:
-            try:
-                button = WebDriverWait(self.web_driver, 0.5).until(
-                    EC.element_to_be_clickable((By.ID, button_id))
-                )
-                if button.is_displayed() and button.is_enabled():
-                    button.click()
-                    button_found = True
-                    break
-            except TimeoutException:
-                pass
+        try:
+            button = WebDriverWait(self.web_driver, 0.5).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, button_ref))
+            )
+            if button.is_displayed() and button.is_enabled():
+                button.click()
+                button_found = True
+        except TimeoutException:
+            pass
 
         if not button_found:
             raise Exception("Main game page inaccessible (Play Button not found)")
