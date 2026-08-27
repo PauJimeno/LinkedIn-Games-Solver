@@ -1,6 +1,5 @@
 from solver.GenericSolver import GenericSolver
 from solver.MiniSudokuEncoding import MiniSudokuEncoding
-from z3 import is_true
 
 
 class MiniSudokuSolver(GenericSolver):
