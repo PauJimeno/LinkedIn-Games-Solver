@@ -14,7 +14,8 @@ setup(
             'zip_solver=base.ZipSetup:main',
             'queens_solver=base.QueensSetup:main',
             'tango_solver=base.TangoSetup:main',
-            'mini_sudoku_solver=base.MiniSudokuSetup:main'
+            'mini_sudoku_solver=base.MiniSudokuSetup:main',
+            'patches_solver=base.PatchesSetup:main'
         ],
     },
 )
