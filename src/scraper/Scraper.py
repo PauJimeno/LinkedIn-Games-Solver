@@ -31,7 +31,7 @@ class Scraper:
     def access_main_page(self, button_ref):
         button_found = False
         try:
-            button = WebDriverWait(self.web_driver, 0.5).until(
+            button = WebDriverWait(self.web_driver, 4).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, button_ref))
             )
             if button.is_displayed() and button.is_enabled():
