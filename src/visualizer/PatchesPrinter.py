@@ -11,7 +11,7 @@ class PatchesPrinter:
             for j in range(self.size):
                 idx = i*self.size+j
                 hint_idx = self.solution[i][j]
-                char = f' {self.hints[hint_idx][1]} ' if len(self.hints[hint_idx])==2 and hint_idx==idx else '   '
+                char = f'{str(self.hints[hint_idx][1]).rjust(2)} ' if len(self.hints[hint_idx])==2 and hint_idx==idx else '   '
                 hex_colour = self.colours[hint_idx]
                 r = int(hex_colour[0:2], 16)
                 g = int(hex_colour[2:4], 16)
