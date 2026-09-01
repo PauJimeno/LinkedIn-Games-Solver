@@ -31,10 +31,18 @@ This commands will automatically run the main application, fetching the puzzle, 
 zip_solver
 queens_solver
 tango_solver
+mini_sudoku_solver
+patches_solver
+wend_solver
 ```
-<img width="604" height="277" alt="imagen" src="https://github.com/user-attachments/assets/6af1c6c3-7acd-4d07-80dd-5ee9c5447f1a" />
-<img width="625" height="341" alt="imagen" src="https://github.com/user-attachments/assets/6d43af31-cf64-4fba-b86b-6424634639f3" />
-<img width="573" height="272" alt="imagen" src="https://github.com/user-attachments/assets/2aaf6f6d-3441-49f4-bc48-150c9ae087df" />
+<img width="713" height="346" alt="image" src="https://github.com/user-attachments/assets/3cbdff2c-ac89-4eee-926d-be9bbf89facd" />
+<img width="775" height="395" alt="image" src="https://github.com/user-attachments/assets/a39fa482-7372-40c6-a380-d870fc4b63e8" />
+<img width="748" height="350" alt="image" src="https://github.com/user-attachments/assets/760a1fb7-db1d-4dce-8975-5929614d70cb" />
+<img width="925" height="348" alt="image" src="https://github.com/user-attachments/assets/f0921294-7ae1-4aa4-9e7d-63f61c1cc1dc" />
+<img width="862" height="349" alt="image" src="https://github.com/user-attachments/assets/8c2212e2-2f50-4820-b3b1-133d378d2ea2" />
+<img width="806" height="482" alt="image" src="https://github.com/user-attachments/assets/fa128b99-8194-4c35-8184-b4435c83876c" />
+
+
 
 # 2. Queens Game encoding
 As said, an encoding has been used to solve the Queens puzzle, let's have a look at how it's been done.
