@@ -38,7 +38,7 @@ class ZipSetup(BaseSetup):
             self.scraper.close_web_driver()
 
         fetching_time = round(time.time() - time_before, 3)
-        print(f'Zip Board data fetched in {fetching_time}s')
+        print(f'Zip board data fetched in {fetching_time}s')
 
         return board_data
 
