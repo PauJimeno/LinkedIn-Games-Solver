@@ -26,5 +26,10 @@
     "webpage_url": "https://www.linkedin.com/games/patches/",
     "board_div_class" : "[data-testid=\"interactive-grid\"]",
     "play_button": "a[href*='skipStartScreen=true']"
+  },
+  "wend": {
+    "webpage_url": "https://www.linkedin.com/games/wend/",
+    "board_div_class" : "[data-testid=\"game-board-container\"]",
+    "play_button": "a[href*='skipStartScreen=true']"
   }
 }
