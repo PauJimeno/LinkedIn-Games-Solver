@@ -39,7 +39,7 @@ class WendSetup(BaseSetup):
             self.scraper.close_web_driver()
 
         fetching_time = round(time.time() - time_before, 3)
-        print(f'{self.game_type} board data fetched in {fetching_time}s')
+        print(f'Wend board data fetched in {fetching_time}s')
 
         return board_data
 

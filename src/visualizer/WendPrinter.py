@@ -18,7 +18,8 @@ class WendPrinter:
                 b = int(hex_colour[4:6], 16)
                 print(cell.format(r, g, b, char), end='')
             print()
-        print()
+
+        cell  = '\u001B[38;2;{};{};{}m{}\u001B[0m'
         for idx, word in enumerate(self.words):
             for letter in word:
                 char = f' {letter} '
